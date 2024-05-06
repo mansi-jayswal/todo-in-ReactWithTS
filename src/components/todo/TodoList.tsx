@@ -45,23 +45,23 @@ function TodoList() {
   }
   
   return (
-    <div className="text-center mt-8 flex flex-col">
+    <div className="text-center mt-8 w-[min(500px,90%)] mx-auto flex flex-col">
       <h1 className="font-semibold text-purple-900 text-3xl mt-4 mb-2">TODO list with React & TS</h1>
       <div className="flex justify-center align-center">
         
-        <form onSubmit={handleAddTodo}>
+        <form onSubmit={handleAddTodo} className="flex gap-2 w-[95%] mx-auto justify-center items-center">
         <input
           type="text"
           placeholder="add todo here..."
-          className="border-2 mt-2 mr-2 p-4 border-gray-700"
+          className="border-2 p-4 border-gray-700"
           value={todoText}
           onChange={(e:ChangeEvent<HTMLInputElement>) => setTodoText(e.target.value)}
         />
         <button type="submit"
-          className="border-2 rounded-lg bg-slate-400 p-2 text-black w-32 h-16 hover:bg-gray-300">Add</button>
+          className="border-2 rounded-lg bg-slate-400 p-2 text-black px-8 py-4 hover:bg-gray-300">Add</button>
         </form>
       </div>
-      <div className="text-center w-96 ml-[600px] mt-4">
+      <div className="text-center w-full mt-4">
       <input
           type="text"
           placeholder="Search..."
@@ -79,12 +79,12 @@ function TodoList() {
         {searchTodo(todos).map((todo) => (
           <li
             key={todo.id}
-            className={`flex items-center justify-between h-16 rounded-lg px-4 py-2 
+            className={`flex items-center justify-between h-16 rounded-lg px-4 py-2 w-[80%] mx-auto
            ${todo.completed? "bg-purple-300" : "bg-purple-200" }`}>
             <span className={`flex-grow ${todo.completed ? "line-through" : ""}`}>{todo.text}</span>
             <div className="flex space-x-2">
               <button
-                className={`px-3 py-1 rounded-md w-24 ${
+                className={`px-3 py-1 rounded-md ${
                   todo.completed
                     ? "bg-gray-400 text-gray-700"
                     : "bg-blue-500 text-white"
